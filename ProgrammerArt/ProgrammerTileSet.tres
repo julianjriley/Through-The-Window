@@ -1,0 +1,28 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://chxavecnhg8af"]
+
+[ext_resource type="Texture2D" uid="uid://c31cblrhl7l6w" path="res://ProgrammerArt/tiles4.png" id="1_6x56r"]
+[ext_resource type="Texture2D" uid="uid://cyvuh0do7y4t7" path="res://ProgrammerArt/tiles1.png" id="2_oinq8"]
+[ext_resource type="Texture2D" uid="uid://bnbl1vnupseq7" path="res://ProgrammerArt/tiles2.png" id="3_avkfp"]
+[ext_resource type="Texture2D" uid="uid://bkxp8ix2t4ygt" path="res://ProgrammerArt/tiles3.png" id="4_o2dpb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ohjx"]
+texture = ExtResource("1_6x56r")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_way4i"]
+texture = ExtResource("2_oinq8")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_clcjf"]
+texture = ExtResource("3_avkfp")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8fbc2"]
+texture = ExtResource("4_o2dpb")
+0:0/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_3ohjx")
+sources/1 = SubResource("TileSetAtlasSource_way4i")
+sources/2 = SubResource("TileSetAtlasSource_clcjf")
+sources/3 = SubResource("TileSetAtlasSource_8fbc2")

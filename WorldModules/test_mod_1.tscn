@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://wb17r32wqhve"]
+
+[ext_resource type="Script" path="res://scripts/Module.gd" id="1_5tbdi"]
+[ext_resource type="PackedScene" uid="uid://bx5h46mcd1tn5" path="res://WorldModules/floor.tscn" id="1_fuiln"]
+[ext_resource type="TileSet" uid="uid://chxavecnhg8af" path="res://ProgrammerArt/ProgrammerTileSet.tres" id="2_d6fjq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fblk7"]
+size = Vector2(1251.18, 40.7341)
+
+[node name="TestMod1" type="Node2D"]
+script = ExtResource("1_5tbdi")
+
+[node name="Floor" parent="." instance=ExtResource("1_fuiln")]
+
+[node name="Obstacle" type="TileMapLayer" parent="."]
+position = Vector2(0, 72)
+scale = Vector2(4.50556, 4.50556)
+tile_map_data = PackedByteArray(0, 0, 1, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_d6fjq")
+
+[node name="BoxHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxHitBox"]
+position = Vector2(180.5, 397)
+scale = Vector2(0.173436, 0.490988)
+shape = SubResource("RectangleShape2D_fblk7")

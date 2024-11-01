@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://gykftvxa0lww"]
+
+[sub_resource type="Gradient" id="Gradient_1r3hf"]
+offsets = PackedFloat32Array(0, 0.993506)
+colors = PackedColorArray(0, 0, 0.639216, 1, 0.235625, 0.262732, 0.504961, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ia6sf"]
+gradient = SubResource("Gradient_1r3hf")
+fill_from = Vector2(1, 1)
+
+[node name="Credits" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 651.0
+texture = SubResource("GradientTexture2D_ia6sf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 169.0
+offset_top = 69.0
+offset_right = 965.0
+offset_bottom = 651.0
+bbcode_enabled = true
+text = "[center]
+
+[wave amp = 50.0 freq = 1.0][font_size=30][b]THROUGH THE WINDOW[/b][/font_size][/wave]
+
+[b]Marcos Lucas Huber da Silva[/b]
+Project Manager
+Environment Artist
+
+[b]Anna Kubart[/b]
+UI Artist
+Character Artist
+
+[b]Yixin Hou[/b]
+Environment Artist
+
+[b]Julian Riley[/b]
+Programmer
+
+[b]Hailey Pham[/b]
+Programmer
+
+
+"
