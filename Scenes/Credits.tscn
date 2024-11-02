@@ -1,29 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://gykftvxa0lww"]
+[gd_scene load_steps=5 format=3 uid="uid://gykftvxa0lww"]
 
-[sub_resource type="Gradient" id="Gradient_1r3hf"]
-offsets = PackedFloat32Array(0, 0.993506)
-colors = PackedColorArray(0, 0, 0.639216, 1, 0.235625, 0.262732, 0.504961, 1)
+[ext_resource type="Theme" uid="uid://fvbpn033xj0e" path="res://Themes/UI.tres" id="1_p04qd"]
+[ext_resource type="Script" path="res://Scenes/credits.gd" id="2_81mkg"]
+
+[sub_resource type="Gradient" id="Gradient_tl8u0"]
+offsets = PackedFloat32Array(0.00649399, 1)
+colors = PackedColorArray(0.752941, 0.694118, 0.580392, 1, 0.313726, 0.341176, 0.509804, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_ia6sf"]
-gradient = SubResource("Gradient_1r3hf")
+gradient = SubResource("Gradient_tl8u0")
 fill_from = Vector2(1, 1)
 
-[node name="Credits" type="Node2D"]
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("1_p04qd")
+script = ExtResource("2_81mkg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1155.0
-offset_bottom = 651.0
+offset_right = 1152.0
+offset_bottom = 648.0
 texture = SubResource("GradientTexture2D_ia6sf")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 169.0
-offset_top = 69.0
-offset_right = 965.0
-offset_bottom = 651.0
+offset_top = 21.0
+offset_right = 1155.0
+offset_bottom = 556.0
 bbcode_enabled = true
 text = "[center]
-
-[wave amp = 50.0 freq = 1.0][font_size=30][b]THROUGH THE WINDOW[/b][/font_size][/wave]
+[wave amp = 50.0 freq = 1.0][font_size=64][b]THROUGH THE WINDOW[/b][/font_size][/wave]
 
 [b]Marcos Lucas Huber da Silva[/b]
 Project Manager
@@ -40,7 +45,16 @@ Environment Artist
 Programmer
 
 [b]Hailey Pham[/b]
-Programmer
+Programmer"
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 495.0
+offset_top = 570.0
+offset_right = 657.0
+offset_bottom = 625.0
+theme = ExtResource("1_p04qd")
+theme_override_font_sizes/font_size = 32
+text = "Back"
 
-"
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

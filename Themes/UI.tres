@@ -1,0 +1,32 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://fvbpn033xj0e"]
+
+[ext_resource type="FontFile" uid="uid://b7gfr07ntv5i5" path="res://Fonts/Retro6.ttf" id="1_wwtaj"]
+[ext_resource type="FontFile" uid="uid://0q5am8ku8j2v" path="res://Fonts/Retro5.ttf" id="2_oey5f"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_llx0x"]
+bg_color = Color(0.6, 0.427451, 0.352941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0jeu"]
+bg_color = Color(0.843137, 0.72549, 0.486275, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oahtw"]
+bg_color = Color(0.803922, 0.556863, 0.345098, 1)
+
+[resource]
+Button/font_sizes/font_size = 96
+Button/fonts/font = ExtResource("1_wwtaj")
+Button/styles/focus = SubResource("StyleBoxFlat_llx0x")
+Button/styles/hover = SubResource("StyleBoxFlat_o0jeu")
+Button/styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_llx0x")
+Button/styles/normal = SubResource("StyleBoxFlat_oahtw")
+Button/styles/pressed = SubResource("StyleBoxFlat_llx0x")
+Label/font_sizes/font_size = 128
+Label/fonts/font = ExtResource("2_oey5f")
+RichTextLabel/colors/default_color = Color(0.925916, 0.917438, 0.86981, 1)
+RichTextLabel/colors/font_shadow_color = Color(0.0612509, 0.0915865, 0.187598, 1)
+RichTextLabel/constants/shadow_offset_x = 1
+RichTextLabel/constants/shadow_offset_y = 2
+RichTextLabel/font_sizes/bold_font_size = 32
+RichTextLabel/font_sizes/normal_font_size = 32
+RichTextLabel/fonts/bold_font = ExtResource("2_oey5f")
+RichTextLabel/fonts/normal_font = ExtResource("1_wwtaj")
