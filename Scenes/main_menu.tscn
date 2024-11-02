@@ -1,13 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://biinhx4bfj52v"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_dewui"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_vvth2"]
-font_size = 53
+[ext_resource type="Theme" uid="uid://fvbpn033xj0e" path="res://Themes/UI.tres" id="1_rueyv"]
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+theme = ExtResource("1_rueyv")
 script = ExtResource("1_dewui")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -15,10 +14,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 323.68
-offset_top = 202.0
-offset_right = 841.68
-offset_bottom = 552.0
+offset_left = 324.0
+offset_top = 224.0
+offset_right = 842.0
+offset_bottom = 574.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -30,31 +29,22 @@ alignment = 1
 [node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
 text = "Play"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 50
 text = "Quit
 "
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 304.0
-offset_top = 59.0
-offset_right = 849.0
-offset_bottom = 132.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "Through The Window
-"
-label_settings = SubResource("LabelSettings_vvth2")
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_top = 80.0
+offset_right = 1155.0
+offset_bottom = 182.0
+text = "Through The Window"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
