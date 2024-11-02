@@ -5,15 +5,18 @@ extends Node2D
 @export var moduleSize: int = 360
 @export var moduleHolder: Node2D
 @export var scrollSpeed: float = 1;
+
 var moduleHolders: Array[Node2D]
 var leftCoord = 0
 var rightCoord = 0
 var rng
+var timer = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(log(0.2*timer)+scrollSpeed)
+	scrollSpeed = log(0.2*timer)+scrollSpeed
 	rng = RandomNumberGenerator.new()
-	var randInt;
 	
 	# start with 4 new modules
 	for i in range(4):
@@ -25,6 +28,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	timer += 0.001
+	scrollSpeed = log(0.2*timer)
 	moveGround();
 
 	# once the left side is out of screen delete the module
