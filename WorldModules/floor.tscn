@@ -13,7 +13,7 @@ scale = Vector2(4.5, 4.5)
 tile_map_data = PackedByteArray("AAAAAAYAAQAAAAAAAAABAAYAAQAAAAAAAAACAAYAAQAAAAAAAAADAAYAAQAAAAAAAAAEAAYAAQAAAAAAAAAAAAcAAgAAAAAAAAADAAcAAgAAAAAAAAACAAcAAgAAAAAAAAABAAcAAgAAAAAAAAAEAAcAAgAAAAAAAAA=")
 tile_set = ExtResource("1_838nx")
 
-[node name="FloorHitBox" type="Area2D" parent="."]
+[node name="FloorHitBox" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorHitBox"]
 position = Vector2(176, 577)

@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bbx167mxsnhny"]
+[gd_scene load_steps=8 format=3 uid="uid://d28knxbyaqdec"]
 
 [ext_resource type="Script" path="res://Scripts/RunningSceneManager.gd" id="1_elccx"]
 [ext_resource type="Texture2D" uid="uid://dgqsqb3tkag71" path="res://icon.svg" id="1_pvyjv"]
-[ext_resource type="PackedScene" uid="uid://dchep38u22vh3" path="res://Scenes/Player.tscn" id="2_kdafp"]
+[ext_resource type="PackedScene" uid="uid://bvnd4p8y1u2e3" path="res://Scenes/Player.tscn" id="2_kdafp"]
 [ext_resource type="Script" path="res://Scripts/obstacleTest.gd" id="3_idk63"]
 [ext_resource type="Script" path="res://Scripts/Score.gd" id="4_ewqkt"]
 [ext_resource type="PackedScene" uid="uid://de556egsk6juq" path="res://Scenes/Game_Over_UI.tscn" id="6_c6xht"]

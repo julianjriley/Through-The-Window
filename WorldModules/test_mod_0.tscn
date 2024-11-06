@@ -18,7 +18,7 @@ scale = Vector2(4.5, 4.5)
 tile_map_data = PackedByteArray(0, 0, 2, 0, 5, 0, 3, 0, 0, 0, 0, 0, 0, 0)
 tile_set = ExtResource("2_65i40")
 
-[node name="BoxHitBox" type="Area2D" parent="."]
+[node name="BoxHitBox" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoxHitBox"]
 position = Vector2(180, 468.225)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://gykftvxa0lww"]
+[gd_scene load_steps=5 format=3 uid="uid://e568e1k6ejl4"]
 
 [ext_resource type="Theme" uid="uid://fvbpn033xj0e" path="res://Themes/UI.tres" id="1_p04qd"]
 [ext_resource type="Script" path="res://Scenes/credits.gd" id="2_81mkg"]
@@ -18,11 +18,13 @@ theme = ExtResource("1_p04qd")
 script = ExtResource("2_81mkg")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 texture = SubResource("GradientTexture2D_ia6sf")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_top = 21.0
 offset_right = 1155.0
 offset_bottom = 556.0

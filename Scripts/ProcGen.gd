@@ -4,8 +4,9 @@ extends Node2D
 @export var tileSize: int = 72
 @export var moduleSize: int = 360
 @export var moduleHolder: Node2D
-@export var scrollSpeed: float = 1;
+@export var initialScrollSpeed: float = 1;
 
+var scrollSpeed = 0;
 var moduleHolders: Array[Node2D]
 var leftCoord = 0
 var rightCoord = 0
@@ -14,8 +15,8 @@ var timer = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(log(0.2*timer)+scrollSpeed)
-	scrollSpeed = log(0.2*timer)+scrollSpeed
+	# print(log(0.2*timer)+scrollSpeed)
+	# scrollSpeed = log(0.2*timer)+scrollSpeed
 	rng = RandomNumberGenerator.new()
 	
 	# start with 4 new modules
@@ -29,11 +30,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	timer += 0.001
-	scrollSpeed = log(0.2*timer)
+	scrollSpeed = log(0.2*timer)+initialScrollSpeed
 	moveGround();
 
 	# once the left side is out of screen delete the module
-	if(leftCoord < -(tileSize*moduleHolders[-1].get_child(0).tileWidth)-500): 
+	if(leftCoord < -(tileSize*moduleHolders[-1].get_child(0).tileWidth)*2): 
 		deleteModule()
 
 	# create a new module so it never exits the screen

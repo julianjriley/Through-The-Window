@@ -11,8 +11,17 @@ config_version=5
 [application]
 
 config/name="Through The Window"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://Scripts/Global.gd"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [input]
 
@@ -25,3 +34,4 @@ JumpAction={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+anti_aliasing/quality/screen_space_aa=1

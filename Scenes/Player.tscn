@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dchep38u22vh3"]
+[gd_scene load_steps=11 format=3 uid="uid://bvnd4p8y1u2e3"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_bsjn8"]
 [ext_resource type="Texture2D" uid="uid://da0bjrn2qe3fw" path="res://Sprites/running_spritesheet_64x64.png" id="2_fkuuv"]
@@ -54,6 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18j1g"]
+size = Vector2(13.9782, 20)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(22, -64)
@@ -72,6 +73,7 @@ frame_progress = 0.830486
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.332814, 0)
 shape = SubResource("RectangleShape2D_18j1g")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

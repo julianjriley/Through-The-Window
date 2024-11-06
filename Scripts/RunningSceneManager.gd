@@ -13,7 +13,7 @@ func _process(delta: float) -> void:
 
 
 func _on_game_over_animation_restart_game() -> void:
-	get_tree().change_scene_to_file("res://Scenes/test_platform.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Hailey_ProcGen_2.tscn")
 	pass # Replace with function body.
 
 
