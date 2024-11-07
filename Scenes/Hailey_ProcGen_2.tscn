@@ -1,20 +1,74 @@
-[gd_scene load_steps=6 format=3 uid="uid://cuv847n3xqybj"]
+[gd_scene load_steps=23 format=3 uid="uid://cuv847n3xqybj"]
 
 [ext_resource type="Script" path="res://Scripts/ProcGen.gd" id="1_muco6"]
-[ext_resource type="PackedScene" uid="uid://cxtinsenehxdc" path="res://WorldModules/test_mod_0.tscn" id="2_f3uj2"]
-[ext_resource type="PackedScene" uid="uid://wb17r32wqhve" path="res://WorldModules/test_mod_1.tscn" id="3_vkm4u"]
+[ext_resource type="PackedScene" uid="uid://cn0thpjc3lems" path="res://WorldModules/GameplayModules/Gameplay1.tscn" id="2_anl60"]
+[ext_resource type="PackedScene" uid="uid://clifj0at5p63v" path="res://WorldModules/GameplayModules/Gameplay2.tscn" id="3_hl6p6"]
 [ext_resource type="PackedScene" uid="uid://c8c8dy40gaf0a" path="res://WorldModules/test_mod_2.tscn" id="4_20lbp"]
+[ext_resource type="PackedScene" uid="uid://dikvq72hascpd" path="res://WorldModules/FarBackgroundModules/Buildings4.tscn" id="5_8lbq6"]
+[ext_resource type="PackedScene" uid="uid://ca1g5k8fqr117" path="res://WorldModules/DistantBackgroundModules/DistantBuildings1.tscn" id="5_eodsc"]
 [ext_resource type="PackedScene" uid="uid://d3eubwkod7ieh" path="res://Scenes/PlayerConfig.tscn" id="5_vcec5"]
+[ext_resource type="PackedScene" uid="uid://dsb68jwnbeqqx" path="res://WorldModules/FarBackgroundModules/Buildings5.tscn" id="6_d4b3j"]
+[ext_resource type="PackedScene" uid="uid://dofmtsl66ca8u" path="res://WorldModules/DistantBackgroundModules/DistantBuildings2.tscn" id="6_yvioy"]
+[ext_resource type="PackedScene" uid="uid://dpdj1r3rvj4ds" path="res://WorldModules/FarBackgroundModules/Buildings6.tscn" id="7_ai0bq"]
+[ext_resource type="PackedScene" uid="uid://di71mkwufhp4c" path="res://WorldModules/BackgroundModules/Buildings1.tscn" id="7_l1ecl"]
+[ext_resource type="PackedScene" uid="uid://byv4o0md2tp2q" path="res://WorldModules/DistantBackgroundModules/DistantBuildings3.tscn" id="7_wfbmo"]
+[ext_resource type="PackedScene" uid="uid://bydu8cec7q41g" path="res://WorldModules/FarBackgroundModules/Buildings7.tscn" id="8_obegq"]
+[ext_resource type="PackedScene" uid="uid://dadr0dp6olw7l" path="res://WorldModules/BackgroundModules/Buildings2.tscn" id="8_p7kfd"]
+[ext_resource type="PackedScene" uid="uid://mbmyylb2asth" path="res://WorldModules/BackgroundModules/Buildings3.tscn" id="9_18mjc"]
+[ext_resource type="PackedScene" uid="uid://j412wld2xjr0" path="res://WorldModules/FarBackgroundModules/EmptyFar.tscn" id="9_85lui"]
+[ext_resource type="PackedScene" uid="uid://croo1am4r8miq" path="res://WorldModules/FarBackgroundModules/EmptyFarSmall.tscn" id="10_7ksjb"]
+[ext_resource type="PackedScene" uid="uid://u63of5vql4ht" path="res://WorldModules/BackgroundModules/EmptyMed.tscn" id="10_16a7b"]
+[ext_resource type="PackedScene" uid="uid://bla6rkx1mhcqj" path="res://WorldModules/BackgroundModules/EmptySmall.tscn" id="11_jcrme"]
+[ext_resource type="PackedScene" uid="uid://dsqor67boms36" path="res://WorldModules/BackgroundModules/Powerlines.tscn" id="19_xf1k4"]
+
+[sub_resource type="Gradient" id="Gradient_rmyf1"]
+offsets = PackedFloat32Array(0.00649399, 1)
+colors = PackedColorArray(0.752941, 0.694118, 0.580392, 1, 0.313726, 0.341176, 0.509804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_2nof5"]
+gradient = SubResource("Gradient_rmyf1")
+fill_from = Vector2(1, 1)
 
 [node name="HaileyProcGen2" type="Node2D" node_paths=PackedStringArray("moduleHolder")]
 script = ExtResource("1_muco6")
-modules = Array[PackedScene]([ExtResource("2_f3uj2"), ExtResource("3_vkm4u"), ExtResource("4_20lbp")])
+modules = Array[PackedScene]([ExtResource("2_anl60"), ExtResource("3_hl6p6"), ExtResource("4_20lbp")])
 moduleHolder = NodePath("ModuleHolder")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.685146, 0.685146, 0.685146, 1)
+color = Color(0.478431, 0.533333, 0.623529, 1)
+
+[node name="BackgroundGenerator" type="Node2D" parent="."]
+
+[node name="DistantBGHolder" type="Node2D" parent="BackgroundGenerator" node_paths=PackedStringArray("moduleHolder")]
+script = ExtResource("1_muco6")
+modules = Array[PackedScene]([ExtResource("5_eodsc"), ExtResource("6_yvioy"), ExtResource("7_wfbmo")])
+moduleHolder = NodePath(".")
+initialScrollSpeed = 0.0
+
+[node name="AtmosphericHaze2" type="TextureRect" parent="BackgroundGenerator"]
+modulate = Color(1, 1, 1, 0.278431)
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_2nof5")
+
+[node name="FarBGHolder" type="Node2D" parent="BackgroundGenerator" node_paths=PackedStringArray("moduleHolder")]
+script = ExtResource("1_muco6")
+modules = Array[PackedScene]([ExtResource("5_8lbq6"), ExtResource("6_d4b3j"), ExtResource("7_ai0bq"), ExtResource("8_obegq"), ExtResource("9_85lui"), ExtResource("10_7ksjb")])
+moduleHolder = NodePath(".")
+initialScrollSpeed = 0.5
+
+[node name="AtmosphericHaze" type="TextureRect" parent="BackgroundGenerator"]
+modulate = Color(1, 1, 1, 0.278431)
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_2nof5")
+
+[node name="NearBGHolder" type="Node2D" parent="BackgroundGenerator" node_paths=PackedStringArray("moduleHolder")]
+script = ExtResource("1_muco6")
+modules = Array[PackedScene]([ExtResource("7_l1ecl"), ExtResource("8_p7kfd"), ExtResource("9_18mjc"), ExtResource("10_16a7b"), ExtResource("11_jcrme"), ExtResource("11_jcrme"), ExtResource("11_jcrme"), ExtResource("19_xf1k4")])
+moduleHolder = NodePath(".")
 
 [node name="ModuleHolder" type="Node2D" parent="."]
 

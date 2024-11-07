@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://croo1am4r8miq"]
+
+[ext_resource type="Script" path="res://Scripts/Module.gd" id="1_s1dh6"]
+[ext_resource type="TileSet" uid="uid://chxavecnhg8af" path="res://ProgrammerArt/ProgrammerTileSet.tres" id="2_gmoas"]
+
+[node name="Building1" type="Node2D"]
+script = ExtResource("1_s1dh6")
+tileWidth = 1
+
+[node name="Building" type="TileMapLayer" parent="."]
+position = Vector2(0, 72)
+scale = Vector2(4.5, 4.5)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 5, 0, 5, 0, 1, 0, 0, 0, 0, 0, 0, 0, 6, 0, 5, 0, 1, 0, 1, 0, 0, 0, 0, 0, 7, 0, 5, 0, 1, 0, 1, 0, 0, 0)
+tile_set = ExtResource("2_gmoas")

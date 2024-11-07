@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=4 uid="uid://dpdj1r3rvj4ds"]
+
+[ext_resource type="Script" path="res://Scripts/Module.gd" id="1_q652n"]
+[ext_resource type="TileSet" uid="uid://chxavecnhg8af" path="res://ProgrammerArt/ProgrammerTileSet.tres" id="2_1ye8q"]
+
+[node name="Building1" type="Node2D"]
+script = ExtResource("1_q652n")
+tileWidth = 2
+
+[node name="Building" type="TileMapLayer" parent="."]
+position = Vector2(0, 72)
+scale = Vector2(4.5, 4.5)
+tile_map_data = PackedByteArray("AAAAAAQABAAXAAgAAAABAAQABAAYAAgAAAAAAAMABAAXAAcAAAABAAMABAAYAAcAAAAAAAUABQABAAAAAAABAAUABQABAAAAAAABAAYABQABAAEAAAABAAcABQABAAEAAAAAAAcABQABAAEAAAAAAAYABQABAAEAAAA=")
+tile_set = ExtResource("2_1ye8q")

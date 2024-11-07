@@ -30,11 +30,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	timer += 0.001
-	scrollSpeed = log(0.2*timer)+initialScrollSpeed
+	scrollSpeed = (log(0.2*timer)/log(1.5))+initialScrollSpeed
 	moveGround();
 
 	# once the left side is out of screen delete the module
-	if(leftCoord < -(tileSize*moduleHolders[-1].get_child(0).tileWidth)*2): 
+	if(leftCoord < -(tileSize*moduleHolders[0].get_child(0).tileWidth)*2): 
 		deleteModule()
 
 	# create a new module so it never exits the screen
@@ -58,16 +58,17 @@ func newModule() -> void:
 
 	# increment right coord to be accurate
 	rightCoord += tileSize * moduleHolders[-1].get_child(0).tileWidth
-	print("R",rightCoord)
+	# print("R",rightCoord)
 	
 
 	
 # delete leftmost module
 func deleteModule() -> void:
+	# print(moduleHolders[0].name, ": ",tileSize * moduleHolders[0].get_child(0).tileWidth)
 	moduleHolder.remove_child(moduleHolders[0])
 	moduleHolders.pop_front()
-	leftCoord += tileSize * moduleHolders[-1].get_child(0).tileWidth;
-	print("L",leftCoord)
+	leftCoord += tileSize * moduleHolders[0].get_child(0).tileWidth;
+	
 
 
 

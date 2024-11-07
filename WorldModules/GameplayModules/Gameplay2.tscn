@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=4 uid="uid://clifj0at5p63v"]
+
+[ext_resource type="Script" path="res://Scripts/Module.gd" id="1_w67l2"]
+[ext_resource type="PackedScene" uid="uid://bx5h46mcd1tn5" path="res://WorldModules/floor.tscn" id="2_jo2lm"]
+[ext_resource type="TileSet" uid="uid://chxavecnhg8af" path="res://ProgrammerArt/ProgrammerTileSet.tres" id="3_6j57i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2d8l"]
+size = Vector2(2600.38, 34.6241)
+
+[node name="TestMod0" type="Node2D"]
+script = ExtResource("1_w67l2")
+tileWidth = 15
+
+[node name="Floor" parent="." instance=ExtResource("2_jo2lm")]
+
+[node name="Floor2" parent="Floor" instance=ExtResource("2_jo2lm")]
+position = Vector2(360, 0)
+
+[node name="Floor2" parent="Floor/Floor2" instance=ExtResource("2_jo2lm")]
+position = Vector2(360, 0)
+
+[node name="Obstacle" type="TileMapLayer" parent="."]
+position = Vector2(216, 72)
+scale = Vector2(4.5, 4.5)
+tile_map_data = PackedByteArray("AAAAAAIABAAOAAUAAAAAAAMABAAOAAYAAAAAAAQABAAOAAcAAAAAAAUABAAOAAgAAAABAAIABAAPAAUAAAABAAMABAAPAAYAAAABAAQABAAPAAcAAAABAAUABAAPAAgAAAACAAIABAAQAAUAAAACAAMABAAQAAYAAAACAAQABAAQAAcAAAACAAUABAAQAAgAAAADAAIABAARAAUAAAADAAMABAARAAYAAAADAAQABAARAAcAAAADAAUABAARAAgAAAAEAAIABAASAAUAAAAEAAMABAASAAYAAAAEAAQABAASAAcAAAAEAAUABAASAAgAAAAFAAIABAATAAUAAAAFAAMABAATAAYAAAAFAAQABAATAAcAAAAFAAUABAATAAgAAAAGAAIABAAUAAUAAAAGAAMABAAUAAYAAAAGAAQABAAUAAcAAAAGAAUABAAUAAgAAAAHAAIABAAVAAUAAAAHAAMABAAVAAYAAAAHAAQABAAVAAcAAAAHAAUABAAVAAgAAAA=")
+tile_set = ExtResource("3_6j57i")
+
+[node name="BoxHitBox" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxHitBox"]
+position = Vector2(536, 321)
+scale = Vector2(0.173436, 0.490988)
+shape = SubResource("RectangleShape2D_e2d8l")
