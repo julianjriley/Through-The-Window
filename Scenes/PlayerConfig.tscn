@@ -31,7 +31,7 @@ position = Vector2(54, -32)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("6_it5ps")
 
-[node name="CharacterBody2D" parent="." groups=["Player"] instance=ExtResource("3_arph0")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_arph0")]
 position = Vector2(74, -54)
 scale = Vector2(7, 7)
 jump_velocity = -750.0
