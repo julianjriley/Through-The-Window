@@ -5,6 +5,7 @@ extends Node2D
 @export var moduleSize: int = 360
 @export var moduleHolder: Node2D
 @export var initialScrollSpeed: float = 1;
+@export var initialTiles: Array[int]
 
 var scrollSpeed = 0;
 var moduleHolders: Array[Node2D]
@@ -20,8 +21,9 @@ func _ready() -> void:
 	rng = RandomNumberGenerator.new()
 	
 	# start with 4 new modules
-	for i in range(4):
-		newModule()
+	for i in range(initialTiles.size()):
+		newModuleOfIndex(initialTiles[i])
+	
 
 	print("X",get_viewport_rect().size.x)
 
@@ -60,6 +62,20 @@ func newModule() -> void:
 	rightCoord += tileSize * moduleHolders[-1].get_child(0).tileWidth
 	# print("R",rightCoord)
 	
+func newModuleOfIndex(i: int) -> void:
+	# select a random module
+
+	# add a parent node to hold the module
+	moduleHolders.push_back(Node2D.new())
+	moduleHolder.add_child(moduleHolders[-1])
+	moduleHolders[-1].add_child(modules[i].instantiate())
+
+	# set position of module
+	moduleHolders[-1].position.x = rightCoord
+
+	# increment right coord to be accurate
+	rightCoord += tileSize * moduleHolders[-1].get_child(0).tileWidth
+	# print("R",rightCoord)
 
 	
 # delete leftmost module

@@ -39,12 +39,12 @@ _data = {
 "RESET": SubResource("Animation_deabr")
 }
 
-[sub_resource type="Gradient" id="Gradient_jg80c"]
+[sub_resource type="Gradient" id="Gradient_g2ncw"]
 offsets = PackedFloat32Array(0.85693, 1)
 colors = PackedColorArray(0, 0, 0, 0.435294, 0.411765, 0.411765, 0.411765, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_t8sdm"]
-gradient = SubResource("Gradient_jg80c")
+gradient = SubResource("Gradient_g2ncw")
 height = 48
 fill = 2
 fill_from = Vector2(0.5, 0.5)
@@ -56,7 +56,7 @@ colors = PackedColorArray(0.266667, 0.372549, 0.407843, 1, 0.266667, 0.372549, 0
 gradient = SubResource("Gradient_h11ho")
 fill_from = Vector2(0, 1)
 
-[node name="Game_Over_Animation" type="AnimationPlayer" node_paths=PackedStringArray("overlay", "dropshadow")]
+[node name="Game_Over_Animation" type="AnimationPlayer" node_paths=PackedStringArray("overlay", "dropshadow") groups=["GameOver"]]
 process_mode = 3
 root_node = NodePath("Game_Over_UI")
 libraries = {
@@ -67,6 +67,7 @@ overlay = NodePath("BG")
 dropshadow = NodePath("Game_Over_UI/DropShadow")
 
 [node name="BG" type="ColorRect" parent="."]
+visible = false
 offset_left = -7.0
 offset_top = -4.0
 offset_right = 1194.0

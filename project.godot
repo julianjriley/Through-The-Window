@@ -23,6 +23,11 @@ Global="*res://Scripts/Global.gd"
 
 window/stretch/mode="viewport"
 
+[global_group]
+
+Player=""
+GameOver=""
+
 [input]
 
 JumpAction={

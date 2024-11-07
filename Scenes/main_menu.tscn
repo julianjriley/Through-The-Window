@@ -1,13 +1,122 @@
-[gd_scene load_steps=3 format=3 uid="uid://biinhx4bfj52v"]
+[gd_scene load_steps=18 format=3 uid="uid://biinhx4bfj52v"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_dewui"]
 [ext_resource type="Theme" uid="uid://fvbpn033xj0e" path="res://Themes/UI.tres" id="1_rueyv"]
+[ext_resource type="PackedScene" uid="uid://ca1g5k8fqr117" path="res://WorldModules/DistantBackgroundModules/DistantBuildings1.tscn" id="3_itrmu"]
+[ext_resource type="PackedScene" uid="uid://dofmtsl66ca8u" path="res://WorldModules/DistantBackgroundModules/DistantBuildings2.tscn" id="4_k7n66"]
+[ext_resource type="PackedScene" uid="uid://byv4o0md2tp2q" path="res://WorldModules/DistantBackgroundModules/DistantBuildings3.tscn" id="5_4dung"]
+[ext_resource type="PackedScene" uid="uid://dikvq72hascpd" path="res://WorldModules/FarBackgroundModules/Buildings4.tscn" id="6_p65uu"]
+[ext_resource type="PackedScene" uid="uid://bydu8cec7q41g" path="res://WorldModules/FarBackgroundModules/Buildings7.tscn" id="7_teui4"]
+[ext_resource type="PackedScene" uid="uid://croo1am4r8miq" path="res://WorldModules/FarBackgroundModules/EmptyFarSmall.tscn" id="8_x5ass"]
+[ext_resource type="PackedScene" uid="uid://dsb68jwnbeqqx" path="res://WorldModules/FarBackgroundModules/Buildings5.tscn" id="9_ljfem"]
+[ext_resource type="PackedScene" uid="uid://j412wld2xjr0" path="res://WorldModules/FarBackgroundModules/EmptyFar.tscn" id="10_lha0n"]
+[ext_resource type="PackedScene" uid="uid://di71mkwufhp4c" path="res://WorldModules/BackgroundModules/Buildings1.tscn" id="11_7imon"]
+[ext_resource type="PackedScene" uid="uid://dadr0dp6olw7l" path="res://WorldModules/BackgroundModules/Buildings2.tscn" id="12_h6wgq"]
+[ext_resource type="PackedScene" uid="uid://bx5h46mcd1tn5" path="res://WorldModules/floor.tscn" id="13_it7s3"]
+[ext_resource type="Texture2D" uid="uid://b75xvah2sju4y" path="res://Sprites/WindowOverlay.png" id="14_tvo7d"]
+[ext_resource type="Texture2D" uid="uid://pgyw5o12t2c8" path="res://Sprites/Car Window V2.png" id="15_npeuw"]
+
+[sub_resource type="Gradient" id="Gradient_rmyf1"]
+offsets = PackedFloat32Array(0.00649399, 1)
+colors = PackedColorArray(0.752941, 0.694118, 0.580392, 1, 0.313726, 0.341176, 0.509804, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_rdv7n"]
+gradient = SubResource("Gradient_rmyf1")
+fill_from = Vector2(1, 1)
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("1_rueyv")
 script = ExtResource("1_dewui")
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="BackgroundGenerator" type="Node2D" parent="BG"]
+
+[node name="DistantBGHolder" type="Node2D" parent="BG/BackgroundGenerator"]
+
+[node name="Building1" parent="BG/BackgroundGenerator/DistantBGHolder" instance=ExtResource("3_itrmu")]
+
+[node name="Building2" parent="BG/BackgroundGenerator/DistantBGHolder" instance=ExtResource("4_k7n66")]
+position = Vector2(504, 0)
+
+[node name="Building3" parent="BG/BackgroundGenerator/DistantBGHolder" instance=ExtResource("5_4dung")]
+position = Vector2(936, 0)
+
+[node name="AtmosphericHaze3" type="TextureRect" parent="BG/BackgroundGenerator"]
+modulate = Color(1, 1, 1, 0.278431)
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_rdv7n")
+metadata/_edit_use_anchors_ = true
+
+[node name="FarBGHolder" type="Node2D" parent="BG/BackgroundGenerator"]
+
+[node name="Building1" parent="BG/BackgroundGenerator/FarBGHolder" instance=ExtResource("6_p65uu")]
+
+[node name="Building2" parent="BG/BackgroundGenerator/FarBGHolder" instance=ExtResource("7_teui4")]
+position = Vector2(216, 0)
+
+[node name="Building3" parent="BG/BackgroundGenerator/FarBGHolder" instance=ExtResource("8_x5ass")]
+position = Vector2(504, 0)
+
+[node name="Building4" parent="BG/BackgroundGenerator/FarBGHolder" instance=ExtResource("9_ljfem")]
+position = Vector2(576, 0)
+
+[node name="Building5" parent="BG/BackgroundGenerator/FarBGHolder" instance=ExtResource("6_p65uu")]
+position = Vector2(720, 0)
+
+[node name="Building6" parent="BG/BackgroundGenerator/FarBGHolder" instance=ExtResource("10_lha0n")]
+position = Vector2(936, 0)
+
+[node name="Building7" parent="BG/BackgroundGenerator/FarBGHolder" instance=ExtResource("10_lha0n")]
+position = Vector2(1152, 0)
+
+[node name="AtmosphericHaze2" type="TextureRect" parent="BG/BackgroundGenerator"]
+modulate = Color(1, 1, 1, 0.278431)
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_rdv7n")
+metadata/_edit_use_anchors_ = true
+
+[node name="NearBGHolder" type="Node2D" parent="BG/BackgroundGenerator"]
+
+[node name="Building1" parent="BG/BackgroundGenerator/NearBGHolder" instance=ExtResource("11_7imon")]
+
+[node name="Building2" parent="BG/BackgroundGenerator/NearBGHolder" instance=ExtResource("12_h6wgq")]
+position = Vector2(720, 0)
+
+[node name="AtmosphericHaze1" type="TextureRect" parent="BG/BackgroundGenerator"]
+modulate = Color(1, 1, 1, 0.121569)
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_rdv7n")
+metadata/_edit_use_anchors_ = true
+
+[node name="ModuleHolder" type="Node2D" parent="BG"]
+
+[node name="Floor" parent="BG/ModuleHolder" instance=ExtResource("13_it7s3")]
+
+[node name="Floor2" parent="BG/ModuleHolder" instance=ExtResource("13_it7s3")]
+position = Vector2(360, 0)
+
+[node name="Floor3" parent="BG/ModuleHolder" instance=ExtResource("13_it7s3")]
+position = Vector2(720, 0)
+
+[node name="Floor4" parent="BG/ModuleHolder" instance=ExtResource("13_it7s3")]
+position = Vector2(1080, 0)
+
+[node name="WindowOverlay" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.321569)
+position = Vector2(576, 324)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("14_tvo7d")
+
+[node name="CarWindowV2" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("15_npeuw")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

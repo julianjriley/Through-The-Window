@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d28knxbyaqdec"]
+[gd_scene load_steps=10 format=3 uid="uid://d28knxbyaqdec"]
 
 [ext_resource type="Script" path="res://Scripts/RunningSceneManager.gd" id="1_elccx"]
 [ext_resource type="Texture2D" uid="uid://dgqsqb3tkag71" path="res://icon.svg" id="1_pvyjv"]
@@ -6,9 +6,13 @@
 [ext_resource type="Script" path="res://Scripts/obstacleTest.gd" id="3_idk63"]
 [ext_resource type="Script" path="res://Scripts/Score.gd" id="4_ewqkt"]
 [ext_resource type="PackedScene" uid="uid://de556egsk6juq" path="res://Scenes/Game_Over_UI.tscn" id="6_c6xht"]
+[ext_resource type="Script" path="res://Scripts/KillOnTouch.gd" id="7_0sp1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c5mg"]
 size = Vector2(192, 84)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hfykf"]
+size = Vector2(48, 24)
 
 [node name="TestPlatform" type="Node2D"]
 process_mode = 3
@@ -23,7 +27,7 @@ texture = ExtResource("1_pvyjv")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_kdafp")]
 process_mode = 1
-position = Vector2(74, -67)
+position = Vector2(7, -127)
 
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 process_mode = 1
@@ -86,6 +90,24 @@ script = ExtResource("4_ewqkt")
 
 [node name="Game_Over_Animation" parent="." instance=ExtResource("6_c6xht")]
 
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-55, 1)
+script = ExtResource("7_0sp1x")
+
+[node name="TextureRect" type="TextureRect" parent="Area2D"]
+offset_top = -66.0
+offset_right = 55.0
+offset_bottom = -44.0
+texture = ExtResource("1_pvyjv")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(27, -55)
+shape = SubResource("RectangleShape2D_hfykf")
+debug_color = Color(0.982944, 0, 0.357593, 0.42)
+
 [connection signal="player_died" from="CharacterBody2D" to="Game_Over_Animation" method="_on_character_body_2d_player_died"]
 [connection signal="main_menu" from="Game_Over_Animation" to="." method="_on_game_over_animation_main_menu"]
 [connection signal="restart_game" from="Game_Over_Animation" to="." method="_on_game_over_animation_restart_game"]
+[connection signal="player_died" from="Area2D" to="Game_Over_Animation" method="_on_character_body_2d_player_died"]

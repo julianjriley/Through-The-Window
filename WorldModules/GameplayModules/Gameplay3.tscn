@@ -1,0 +1,53 @@
+[gd_scene load_steps=7 format=4 uid="uid://u1ldcyo8d5nu"]
+
+[ext_resource type="Script" path="res://Scripts/Module.gd" id="1_mou5j"]
+[ext_resource type="PackedScene" uid="uid://bx5h46mcd1tn5" path="res://WorldModules/floor.tscn" id="2_pijdj"]
+[ext_resource type="TileSet" uid="uid://chxavecnhg8af" path="res://ProgrammerArt/ProgrammerTileSet.tres" id="3_mxv67"]
+[ext_resource type="Script" path="res://Scripts/KillOnTouch.gd" id="4_ftwtp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v01vr"]
+size = Vector2(82, 3.11111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e2d8l"]
+size = Vector2(2600.38, 34.6241)
+
+[node name="TestMod0" type="Node2D"]
+script = ExtResource("1_mou5j")
+tileWidth = 15
+
+[node name="Floor" parent="." instance=ExtResource("2_pijdj")]
+
+[node name="Floor2" parent="Floor" instance=ExtResource("2_pijdj")]
+position = Vector2(360, 0)
+
+[node name="Floor2" parent="Floor/Floor2" instance=ExtResource("2_pijdj")]
+position = Vector2(360, 0)
+
+[node name="Obstacle" type="TileMapLayer" parent="."]
+position = Vector2(216, 72)
+scale = Vector2(4.5, 4.5)
+tile_map_data = PackedByteArray("AAAAAAIABAAOAAUAAAAAAAMABAAOAAYAAAAAAAQABAAOAAcAAAAAAAUABAAOAAgAAAABAAIABAAPAAUAAAABAAMABAAPAAYAAAABAAQABAAPAAcAAAABAAUABAAPAAgAAAACAAIABAAQAAUAAAACAAMABAAQAAYAAAACAAQABAAQAAcAAAACAAUABAAQAAgAAAADAAIABAARAAUAAAADAAMABAARAAYAAAADAAQABAARAAcAAAADAAUABAARAAgAAAAEAAIABAASAAUAAAAEAAMABAASAAYAAAAEAAQABAASAAcAAAAEAAUABAASAAgAAAAFAAIABAATAAUAAAAFAAMABAATAAYAAAAFAAQABAATAAcAAAAFAAUABAATAAgAAAAGAAIABAAUAAUAAAAGAAMABAAUAAYAAAAGAAQABAAUAAcAAAAGAAUABAAUAAgAAAAHAAIABAAVAAUAAAAHAAMABAAVAAYAAAAHAAQABAAVAAcAAAAHAAUABAAVAAgAAAA=")
+tile_set = ExtResource("3_mxv67")
+
+[node name="Spikes" type="TileMapLayer" parent="."]
+position = Vector2(216, 72)
+scale = Vector2(4.5, 4.5)
+tile_map_data = PackedByteArray("AAACAAUABAAEAAgAAAADAAUABAAEAAgAAAAFAAUABAAEAAgAAAAGAAUABAAEAAgAAAAEAAUABAAEAAgAAAA=")
+tile_set = ExtResource("3_mxv67")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(216, 72)
+scale = Vector2(4.5, 4.5)
+script = ExtResource("4_ftwtp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(72.7778, 94.8889)
+shape = SubResource("RectangleShape2D_v01vr")
+debug_color = Color(0.973026, 0, 0.436908, 0.42)
+
+[node name="BoxHitBox" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BoxHitBox"]
+position = Vector2(536, 321)
+scale = Vector2(0.173436, 0.490988)
+shape = SubResource("RectangleShape2D_e2d8l")

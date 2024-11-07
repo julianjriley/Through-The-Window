@@ -56,7 +56,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_18j1g"]
 size = Vector2(13.9782, 20)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(22, -64)
 scale = Vector2(3.00468, 3.00468)
 platform_floor_layers = 4294967294

@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://cuv847n3xqybj"]
+[gd_scene load_steps=24 format=3 uid="uid://cuv847n3xqybj"]
 
 [ext_resource type="Script" path="res://Scripts/ProcGen.gd" id="1_muco6"]
 [ext_resource type="PackedScene" uid="uid://cn0thpjc3lems" path="res://WorldModules/GameplayModules/Gameplay1.tscn" id="2_anl60"]
 [ext_resource type="PackedScene" uid="uid://clifj0at5p63v" path="res://WorldModules/GameplayModules/Gameplay2.tscn" id="3_hl6p6"]
 [ext_resource type="PackedScene" uid="uid://c8c8dy40gaf0a" path="res://WorldModules/test_mod_2.tscn" id="4_20lbp"]
 [ext_resource type="PackedScene" uid="uid://dikvq72hascpd" path="res://WorldModules/FarBackgroundModules/Buildings4.tscn" id="5_8lbq6"]
+[ext_resource type="PackedScene" uid="uid://u1ldcyo8d5nu" path="res://WorldModules/GameplayModules/Gameplay3.tscn" id="5_dmc24"]
 [ext_resource type="PackedScene" uid="uid://ca1g5k8fqr117" path="res://WorldModules/DistantBackgroundModules/DistantBuildings1.tscn" id="5_eodsc"]
 [ext_resource type="PackedScene" uid="uid://d3eubwkod7ieh" path="res://Scenes/PlayerConfig.tscn" id="5_vcec5"]
 [ext_resource type="PackedScene" uid="uid://dsb68jwnbeqqx" path="res://WorldModules/FarBackgroundModules/Buildings5.tscn" id="6_d4b3j"]
@@ -21,18 +22,19 @@
 [ext_resource type="PackedScene" uid="uid://bla6rkx1mhcqj" path="res://WorldModules/BackgroundModules/EmptySmall.tscn" id="11_jcrme"]
 [ext_resource type="PackedScene" uid="uid://dsqor67boms36" path="res://WorldModules/BackgroundModules/Powerlines.tscn" id="19_xf1k4"]
 
-[sub_resource type="Gradient" id="Gradient_rmyf1"]
+[sub_resource type="Gradient" id="Gradient_lgfqf"]
 offsets = PackedFloat32Array(0.00649399, 1)
 colors = PackedColorArray(0.752941, 0.694118, 0.580392, 1, 0.313726, 0.341176, 0.509804, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_2nof5"]
-gradient = SubResource("Gradient_rmyf1")
+gradient = SubResource("Gradient_lgfqf")
 fill_from = Vector2(1, 1)
 
 [node name="HaileyProcGen2" type="Node2D" node_paths=PackedStringArray("moduleHolder")]
 script = ExtResource("1_muco6")
-modules = Array[PackedScene]([ExtResource("2_anl60"), ExtResource("3_hl6p6"), ExtResource("4_20lbp")])
+modules = Array[PackedScene]([ExtResource("2_anl60"), ExtResource("3_hl6p6"), ExtResource("4_20lbp"), ExtResource("5_dmc24")])
 moduleHolder = NodePath("ModuleHolder")
+initialTiles = Array[int]([2, 2, 2, 2])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0
@@ -46,8 +48,9 @@ script = ExtResource("1_muco6")
 modules = Array[PackedScene]([ExtResource("5_eodsc"), ExtResource("6_yvioy"), ExtResource("7_wfbmo")])
 moduleHolder = NodePath(".")
 initialScrollSpeed = 0.0
+initialTiles = Array[int]([0, 1, 2])
 
-[node name="AtmosphericHaze2" type="TextureRect" parent="BackgroundGenerator"]
+[node name="AtmosphericHaze3" type="TextureRect" parent="BackgroundGenerator"]
 modulate = Color(1, 1, 1, 0.278431)
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -58,8 +61,9 @@ script = ExtResource("1_muco6")
 modules = Array[PackedScene]([ExtResource("5_8lbq6"), ExtResource("6_d4b3j"), ExtResource("7_ai0bq"), ExtResource("8_obegq"), ExtResource("9_85lui"), ExtResource("10_7ksjb")])
 moduleHolder = NodePath(".")
 initialScrollSpeed = 0.5
+initialTiles = Array[int]([0, 3, 5, 1, 2, 4])
 
-[node name="AtmosphericHaze" type="TextureRect" parent="BackgroundGenerator"]
+[node name="AtmosphericHaze2" type="TextureRect" parent="BackgroundGenerator"]
 modulate = Color(1, 1, 1, 0.278431)
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -69,6 +73,13 @@ texture = SubResource("GradientTexture2D_2nof5")
 script = ExtResource("1_muco6")
 modules = Array[PackedScene]([ExtResource("7_l1ecl"), ExtResource("8_p7kfd"), ExtResource("9_18mjc"), ExtResource("10_16a7b"), ExtResource("11_jcrme"), ExtResource("11_jcrme"), ExtResource("11_jcrme"), ExtResource("19_xf1k4")])
 moduleHolder = NodePath(".")
+initialTiles = Array[int]([0, 1])
+
+[node name="AtmosphericHaze1" type="TextureRect" parent="BackgroundGenerator"]
+modulate = Color(1, 1, 1, 0.121569)
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_2nof5")
 
 [node name="ModuleHolder" type="Node2D" parent="."]
 

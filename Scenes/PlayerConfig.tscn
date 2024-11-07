@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3eubwkod7ieh"]
+[gd_scene load_steps=7 format=3 uid="uid://d3eubwkod7ieh"]
 
 [ext_resource type="Script" path="res://Scripts/RunningSceneManager.gd" id="1_rl7l7"]
 [ext_resource type="PackedScene" uid="uid://bvnd4p8y1u2e3" path="res://Scenes/Player.tscn" id="3_arph0"]
 [ext_resource type="Theme" uid="uid://fvbpn033xj0e" path="res://Themes/UI.tres" id="3_vdd47"]
 [ext_resource type="Script" path="res://Scripts/Score.gd" id="5_02pf6"]
+[ext_resource type="Texture2D" uid="uid://pgyw5o12t2c8" path="res://Sprites/Car Window V2.png" id="6_it5ps"]
 [ext_resource type="PackedScene" uid="uid://de556egsk6juq" path="res://Scenes/Game_Over_UI.tscn" id="6_pheyc"]
 
 [node name="PlayerConfig" type="Node2D"]
@@ -25,7 +26,12 @@ script = ExtResource("5_02pf6")
 
 [node name="Game_Over_Animation" parent="." instance=ExtResource("6_pheyc")]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_arph0")]
+[node name="CarWindowV2" type="Sprite2D" parent="."]
+position = Vector2(54, -32)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("6_it5ps")
+
+[node name="CharacterBody2D" parent="." groups=["Player"] instance=ExtResource("3_arph0")]
 position = Vector2(74, -54)
 scale = Vector2(7, 7)
 jump_velocity = -750.0
