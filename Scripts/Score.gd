@@ -11,3 +11,4 @@ func _process(delta: float) -> void:
 	scoreTracker += 1
 	self.text = str(scoreTracker)
 	pass
+	

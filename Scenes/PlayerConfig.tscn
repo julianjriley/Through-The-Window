@@ -14,6 +14,7 @@ script = ExtResource("1_rl7l7")
 
 [node name="Score" type="Label" parent="."]
 process_mode = 1
+z_index = 10
 offset_left = 418.0
 offset_top = -335.0
 offset_right = 611.0
@@ -38,4 +39,5 @@ texture = ExtResource("6_it5ps")
 
 [connection signal="main_menu" from="Game_Over_Animation" to="." method="_on_game_over_animation_main_menu"]
 [connection signal="restart_game" from="Game_Over_Animation" to="." method="_on_game_over_animation_restart_game"]
+[connection signal="player_died" from="CharacterBody2D" to="Score" method="_on_character_body_2d_player_died"]
 [connection signal="player_died" from="CharacterBody2D" to="Game_Over_Animation" method="_on_character_body_2d_player_died"]

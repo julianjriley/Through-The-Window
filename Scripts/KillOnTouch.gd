@@ -18,6 +18,7 @@ func body_entered(body: Node2D):
 	print("ENTERED")
 	if(body.is_in_group("Player")):
 		print("PLAYER")
+		body._on_player_died()
 		get_tree().get_first_node_in_group("GameOver")._on_character_body_2d_player_died()
 	pass
 

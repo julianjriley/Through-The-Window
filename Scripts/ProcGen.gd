@@ -13,6 +13,7 @@ var leftCoord = 0
 var rightCoord = 0
 var rng
 var timer = 5
+var endGame = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -25,7 +26,7 @@ func _ready() -> void:
 		newModuleOfIndex(initialTiles[i])
 	
 
-	print("X",get_viewport_rect().size.x)
+	#print("X",get_viewport_rect().size.x)
 
 
 
