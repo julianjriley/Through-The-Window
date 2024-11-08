@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://biinhx4bfj52v"]
+[gd_scene load_steps=17 format=3 uid="uid://biinhx4bfj52v"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_dewui"]
 [ext_resource type="Theme" uid="uid://fvbpn033xj0e" path="res://Themes/UI.tres" id="1_rueyv"]
-[ext_resource type="PackedScene" uid="uid://ca1g5k8fqr117" path="res://WorldModules/DistantBackgroundModules/DistantBuildings1.tscn" id="3_itrmu"]
-[ext_resource type="PackedScene" uid="uid://dofmtsl66ca8u" path="res://WorldModules/DistantBackgroundModules/DistantBuildings2.tscn" id="4_k7n66"]
-[ext_resource type="PackedScene" uid="uid://byv4o0md2tp2q" path="res://WorldModules/DistantBackgroundModules/DistantBuildings3.tscn" id="5_4dung"]
+[ext_resource type="PackedScene" uid="uid://dk086uj2hwh13" path="res://WorldModules/DistantBackgroundModules/DistantBuildingsRevised1.tscn" id="3_ojncn"]
+[ext_resource type="PackedScene" uid="uid://bb4plogmpr3c1" path="res://WorldModules/DistantBackgroundModules/DistantBuildingsRevised2.tscn" id="4_v8g4u"]
+[ext_resource type="PackedScene" uid="uid://dvdynkmibrjoh" path="res://WorldModules/DistantBackgroundModules/DistantBuildingsRevised3.tscn" id="5_2a7nj"]
+[ext_resource type="Texture2D" uid="uid://c8yt7nxcmayc3" path="res://Sprites/1 Background.png" id="6_a05oh"]
 [ext_resource type="PackedScene" uid="uid://dikvq72hascpd" path="res://WorldModules/FarBackgroundModules/Buildings4.tscn" id="6_p65uu"]
 [ext_resource type="PackedScene" uid="uid://bydu8cec7q41g" path="res://WorldModules/FarBackgroundModules/Buildings7.tscn" id="7_teui4"]
 [ext_resource type="PackedScene" uid="uid://croo1am4r8miq" path="res://WorldModules/FarBackgroundModules/EmptyFarSmall.tscn" id="8_x5ass"]
@@ -15,14 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://bx5h46mcd1tn5" path="res://WorldModules/floor.tscn" id="13_it7s3"]
 [ext_resource type="Texture2D" uid="uid://b75xvah2sju4y" path="res://Sprites/WindowOverlay.png" id="14_tvo7d"]
 [ext_resource type="Texture2D" uid="uid://pgyw5o12t2c8" path="res://Sprites/Car Window V2.png" id="15_npeuw"]
-
-[sub_resource type="Gradient" id="Gradient_rmyf1"]
-offsets = PackedFloat32Array(0.00649399, 1)
-colors = PackedColorArray(0.752941, 0.694118, 0.580392, 1, 0.313726, 0.341176, 0.509804, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_rdv7n"]
-gradient = SubResource("Gradient_rmyf1")
-fill_from = Vector2(1, 1)
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -36,20 +29,19 @@ script = ExtResource("1_dewui")
 
 [node name="DistantBGHolder" type="Node2D" parent="BG/BackgroundGenerator"]
 
-[node name="Building1" parent="BG/BackgroundGenerator/DistantBGHolder" instance=ExtResource("3_itrmu")]
+[node name="Building1" parent="BG/BackgroundGenerator/DistantBGHolder" instance=ExtResource("3_ojncn")]
 
-[node name="Building2" parent="BG/BackgroundGenerator/DistantBGHolder" instance=ExtResource("4_k7n66")]
-position = Vector2(504, 0)
+[node name="Building2" parent="BG/BackgroundGenerator/DistantBGHolder" instance=ExtResource("4_v8g4u")]
+position = Vector2(144, 0)
 
-[node name="Building3" parent="BG/BackgroundGenerator/DistantBGHolder" instance=ExtResource("5_4dung")]
-position = Vector2(936, 0)
+[node name="Building3" parent="BG/BackgroundGenerator/DistantBGHolder" instance=ExtResource("5_2a7nj")]
+position = Vector2(288, 0)
 
-[node name="AtmosphericHaze3" type="TextureRect" parent="BG/BackgroundGenerator"]
+[node name="Haze3" type="Sprite2D" parent="BG/BackgroundGenerator"]
 modulate = Color(1, 1, 1, 0.278431)
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = SubResource("GradientTexture2D_rdv7n")
-metadata/_edit_use_anchors_ = true
+position = Vector2(576, 324)
+scale = Vector2(7.2, 7.2)
+texture = ExtResource("6_a05oh")
 
 [node name="FarBGHolder" type="Node2D" parent="BG/BackgroundGenerator"]
 
@@ -73,12 +65,11 @@ position = Vector2(936, 0)
 [node name="Building7" parent="BG/BackgroundGenerator/FarBGHolder" instance=ExtResource("10_lha0n")]
 position = Vector2(1152, 0)
 
-[node name="AtmosphericHaze2" type="TextureRect" parent="BG/BackgroundGenerator"]
+[node name="Haze2" type="Sprite2D" parent="BG/BackgroundGenerator"]
 modulate = Color(1, 1, 1, 0.278431)
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = SubResource("GradientTexture2D_rdv7n")
-metadata/_edit_use_anchors_ = true
+position = Vector2(575.901, 324.1)
+scale = Vector2(7.20124, 7.19777)
+texture = ExtResource("6_a05oh")
 
 [node name="NearBGHolder" type="Node2D" parent="BG/BackgroundGenerator"]
 
@@ -87,12 +78,11 @@ metadata/_edit_use_anchors_ = true
 [node name="Building2" parent="BG/BackgroundGenerator/NearBGHolder" instance=ExtResource("12_h6wgq")]
 position = Vector2(720, 0)
 
-[node name="AtmosphericHaze1" type="TextureRect" parent="BG/BackgroundGenerator"]
+[node name="Haze1" type="Sprite2D" parent="BG/BackgroundGenerator"]
 modulate = Color(1, 1, 1, 0.121569)
-offset_right = 1152.0
-offset_bottom = 648.0
-texture = SubResource("GradientTexture2D_rdv7n")
-metadata/_edit_use_anchors_ = true
+position = Vector2(576, 324)
+scale = Vector2(7.2, 7.2)
+texture = ExtResource("6_a05oh")
 
 [node name="ModuleHolder" type="Node2D" parent="BG"]
 
